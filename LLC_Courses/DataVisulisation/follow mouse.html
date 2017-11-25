@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First ProcessingJS project</title>
+  </head>
+  <body>
+  	<canvas id="myProcessingProject"></canvas>
+  	<script src="processing.min.js"></script>
+    <script>
+    var cHeight=500;
+    var cWidth = 700;
+      function sketchProc(processing) {
+        processing.setup = function() {
+          //the code for your basic setup functions goes here
+          processing.size(cWidth,cHeight);
+        }
+        processing.draw = function() {
+
+          var X=processing.mouseX;
+          var Y=processing.mouseY;
+          if((X-(25/2)>0)&&//if mouseX is to right of left side of canvas
+            (X+(25/2)<cWidth)&&//if mouseX is to left of right canvas border
+              (Y-(25/2)>0)&&//if mouseY is lower than top of canvas
+                (Y+(25/2)<cHeight)){//if mouseY is higher then bottom of canvas
+            processing.background();
+            processing.ellipse(X,Y, 25, 25);
+          }
+        };
+      }
+
+      var canvas = document.getElementById("myProcessingProject");
+      var processingInstance = new Processing(canvas, sketchProc);
+    </script>
+  </body>
+</html>
