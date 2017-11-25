@@ -13,25 +13,10 @@
           processing.size(700,500);
         }
         processing.draw = function() {
-          var num=30;
-          var num1=num+60;
-          var numUp=num;
-          var x=10;
-          var y=20;
-          //The code to describe what you want to draw goes here.
-          for (i=0;i<4;i++){
-            processing.rect(x+(num1*i),y+num,x+110,y+240);
-            processing.ellipse(x+(num1*i)+25,y+num+65, 25, 25);
-            processing.ellipse(x+(num1*i)+95,y+num+65, 25, 25);
-            processing.ellipse(x+(num1*i)+60,y+num+132, 25, 25);
-            processing.ellipse(x+(num1*i)+25,y+num+200, 25, 25);
-            processing.ellipse(x+(num1*i)+95,y+num+200, 25, 25);
-            num+=numUp;
-          }
-
+            processing.rect(20,20,110,240);
         };
       }
-      
+
       var canvas = document.getElementById("myProcessingProject");
       var processingInstance = new Processing(canvas, sketchProc);
     </script>
