@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+
+#navBar{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	width: 100%;
+	height:30px;
+}
+#home, #about, #projects, #tutoring, #contact {
+	float:left;
+	margin: auto;
+}
+#home a, #current li a, #projects a, #tutoring a, #contact a{
+	text-align: center;
+}
+headder{
+	margin: 0px;
+}
+#body{
+	height: 1334px;
+	margin-left:5%;
+	margin-right:5%;
+}
+#pic_name{
+	height:33.33%;
+}
+#myName{
+	display:flex;
+	align-items: center;
+	font-size: 90px;
+	margin:auto;
+	text-align: center;
+}
+#profile_container{
+/*
+	display:flex;
+	align-content: center;
+*/
+	height: 100%;
+	width:50%;
+	position:relative;
+		
+}
+#profilePic{
+/*
+	display:flex;
+	align-items: center;
+	align-content: center;
+*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom: 0;
+	background-image: url(../Images/P.png) ;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+#about_me{
+	text-align: justify;
+	text-justify:inter-word;
+}
+#contact_me{
+	margin-left: 10%;
+	margin-right:10%
+}
+#facebook, #github, #email{
+	color: #401962;
+	margin:auto;
+	width:auto;	
+	padding-left: 1%;
+	padding-right: 1%;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+#comment_section{
+	display:flex;
+}
+#repeat{
+	margin:auto;
+}
