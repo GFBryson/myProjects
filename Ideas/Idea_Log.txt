@@ -1,0 +1,54 @@
+//Gillian Bryson
+//V00880054
+//01-15-2018
+Class_Mate:
+  Ok new idea. Not that I dont think the full app is possible( it's perfectly possible).
+  But to start out I'm going to make this a simple bot designed for slack that keeps track of assignments
+  and alerts channels on due dates for upcoming projects.
+  I still want to make the full app, but I want to try it on a (very) small scale first.
+
+  Starting by looking into slack api's now :)
+
+//01-12-2018
+
+Class_Mate:
+  there are many types of scheduler apps out there for students that are supposed to help them
+  keep track of classes, assignments, and other due dates. As a Student I have tried a lot of them..
+  and usually I find something about them lacking.
+
+  Some make you delete your old classes before you input new ones, some dont give you proper
+  reminders for assignments or due dates. Some are so rigid you cant out in a one time event
+  such as a group meeting or an up coming study session. Many allow you to enter in a teachers
+  name but no other information that would make contacting them easier.
+
+  So here is my idea.
+  These are the key elements of what I would want to make in a scheduler app.
+    -allow you to schedule multiple semesters at once
+    -have multiple calendars for anything they want
+      -ex(work, school, volunteering etc..)
+      -able to be turned on and off of the calendar display portion
+        -turn on and off friend schedules
+    -tabs for
+      -calendar
+      -assignments
+      -exams
+      -up-coming events
+      -daily overview
+      -index
+    -sharable
+      -calendar(s) can be shared with friends or groups.
+      -You can choose to always have someone know your schedule or make it a limited time viewing.
+      -its not just like a photo, as you make changes to the schedule your 'followers' would
+      see the changes on their side
+      -make it so you can compare your schedules with any selected friends who have shared it with you
+    -index
+      -holds contacts for friends and 'followers'
+      -where you can input teacher information
+    -teacher information
+      -allows you to input teachers office number, phone number, email etc to make contacting
+       them for help easier
+      -you can assign office hours to them which you can use to look at when you could go see them
+      based on that compared to your schedule
+    -alerts
+      -alerts are auto set to remind you 2 days before due date and then again 4 hours before hand
+      -these can all be changed depending on class or for the individual assignment
