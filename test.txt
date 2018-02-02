@@ -1,1 +1,2 @@
-testing that i set up github correctly on atom :D 
+testing that i set up github correctly on atom :D
+yay !! looks good :D
