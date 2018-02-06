@@ -3,6 +3,7 @@
 # Gillian Bryson
 # V00880054
 # Feb 5th 2017
+# Code modified from example code written by Bill Bird (assistant teaching professor UVic)
 #
 #
 
