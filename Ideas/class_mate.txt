@@ -1,0 +1,26 @@
+/* Gillian Bryson
+ *
+ * V00880054
+ * Feburary 8th 2018
+ * 
+ */
+
+
+Class_ mate:
+
+a slack bot that will keep track of assignments, test dates, and group meetings and schedule reminders for them. 
+
+Steps:
+
+	Attempt to make a '/' command in slack
+		Will need a Server for responding to POST requests
+			Python http.server package
+		get bot to reply to 'hello'
+	look into webhooks and how to send them
+
+		get 'bot' to send a message every 15 min or something
+	start coding bot on server side to handel making reminders for assignments
+		use python as thats what the server is going to be in
+
+
+
