@@ -33,7 +33,7 @@ def run(myServer=HTTPServer, handler_class=BaseHTTPequestHandler):
 	httpd.serve_forever()
 """
 
-
+do_get()
 
 
 
