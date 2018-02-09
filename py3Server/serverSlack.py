@@ -9,6 +9,7 @@
 #
 
 import http.server
+import requests
 
 class slackHandler(http.server.BaseHTTPRequestHandler):
 	def respond(self):
@@ -21,6 +22,7 @@ class slackHandler(http.server.BaseHTTPRequestHandler):
 		print("GET request found");
 		response_text = 'Hello World'
 		self.wfile.write(bytes(response_text,'UTF-8'))
+
 	def do_POST(self):
 		print("POST request found")
 		content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
@@ -31,6 +33,7 @@ class slackHandler(http.server.BaseHTTPRequestHandler):
 		self.respond()
 		self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
 
+		response=requests.post(self.path,"Hello World")
 
 
 server = http.server.HTTPServer (('134.87.136.87',8888), slackHandler)
