@@ -4,7 +4,7 @@
 # V00880054
 # Feb 5th 2017
 # Code modified from example code written by Bill Bird (assistant teaching professor UVic)
-# Code assisted by example from https://gist.github.com/mdonkers/63e115cc0c79b4f6b8b3a6b797e485c7 
+# Code assisted by example from https://gist.github.com/mdonkers/63e115cc0c79b4f6b8b3a6b797e485c7
 #
 #
 #
@@ -13,6 +13,9 @@ import http.server
 
 class slackHandler(http.server.BaseHTTPRequestHandler):
 	def do_GET(self):
+		self.send_response(200)
+		self.send_header('content-type', 'text/plain')
+		self.end_headers()
 		print("GET request found");
 		response_text = 'Hello World'
 		self.wfile.write(bytes(response_text,'UTF-8'))
