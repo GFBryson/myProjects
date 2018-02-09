@@ -1,0 +1,31 @@
+Feb 9th 2018 ---------------------------
+I can get the server (slackServer.py) to receive GET requests and even write back information but 
+only when i set the server ip to be 127.0.0.1
+
+When i set it to any of the other ip's that my computer says it works off of it doesnt
+even seem to receive a get request. 
+
+Further it appears as though Slack wants an adress in the form of http rather than an ip address so
+im going to have to look into how to hook up an address to my computer or hwo to get cloud space
+	Amazon does cloud hosting. may need to look into that as eventually this cant run on my
+	laptop as its not always connected to the internet
+Slack also wants the server to be encrypted with SSL. So thats another thing to ass to the research list.
+
+Goal for the day ---> get server working on ip other than 127.0.0.1:8888
+
+Feb 2nd 2018 ---------------------------
+So far the server seems to know when it receives a GET request but is having issues sending information 
+out to the browser. Hopefully this will be fixed soon and i can work on how to get and store the POST
+requests that slack makes
+
+Feb 1st 2018 ---------------------------
+After looking at the API's for making a '/' command in Slack it appears as though ill need
+a server so i can respond to POST requests that the app will make.
+
+After doing some reaserch and getting help from a professor (Bill Bird) I have a better 
+idea of how to do this.  
+
+I have attempted to start making this server in Python as it seems to be the easiest to start with
+
+
+
