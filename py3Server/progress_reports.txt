@@ -1,6 +1,10 @@
 
 
 Feb 9th 2018 ---------------------------
+16:03
+	Got the environemnt working (forgot to use source in front of the activation command) and got it up on the git
+	(although it seemed to need alot of packages)
+
 15:25
 	it was recommended that I use virtualenv to run my python in with pip
 	i installed it and made a new environment in my git folder however it doesn't seem to want to let me run it
