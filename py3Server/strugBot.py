@@ -13,12 +13,20 @@ import os
 import time
 import re
 from slackclient import SlackClient
-
+import random
 #----------CONSTANTS----------#
 
 READ_DELAY=1 # 1 seccond read delay
 FIRST_COMMAND ='hello'
 MENTIONED = "^<@(|[WU].+?)>(.*)"#what the bot uses to look for its name being mentoined
+
+#-------Response arrays-------#
+
+#'hello'
+hello=[]
+hello.append('Hello! How are you?')
+hello.append('Hi! great to see you :wave:')
+hello.append('Hey. How\'s it going?')
 
 #------------CODE-------------#
 
@@ -54,10 +62,11 @@ def  handle_CMD(command, channel):
 	#Find and execute given command
 	response = None
 
-	#here we go !! :D
-	if command.startswith(FIRST_COMMAND):
-		print("FIRST_COMMAND found as : ", FIRST_COMMAND)
-		response="Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+	#first command ('hello')
+	if command.startswith(FIRST_COMMAND):# if hello was found in the mention message
+		#choose a 'random' response form those appended to the response list (to give the illusion of diversity)
+		response=hello[random.randint(0,len(hello)-1)]
+		print("respionse is: "+response)
 	client.api_call(
 		"chat.postMessage",
 		channel=channel,
@@ -66,7 +75,7 @@ def  handle_CMD(command, channel):
 
 if __name__ == "__main__":
 	if client.rtm_connect(with_team_state=False):
-		#print("StrugBot up and running :D !!")
+		print("StrugBot up and running :D !!")
 
 		botID=client.api_call("auth.test")["user_id"] #load bot id where previously set as 'None'
 		#Used to help bot see whe it has been mentioned
