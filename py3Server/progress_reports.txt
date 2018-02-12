@@ -1,6 +1,23 @@
+Feb 11th 2018 --------------------------
 
+16:48 
+	So now comes the part of how to implement the storing of events data so that it will be save when 
+	the bot turns off (weather for testing or if it crashes for some reason)
+	My current thought is to implement a database in something like sql or sqlite
+
+Feb 10th 2018 --------------------------
+
+	Implemented n array or responses for the 'hello' prompt and set it so it would randomly choose one each time it 
+	replies
+
+	Strug now responds to queries about the current date and the current time
 
 Feb 9th 2018 ---------------------------
+
+22:40
+	Yay! So I have gotten the most simple of bots up and running :D so far it can detect when someone 'mentions' it (@StrugBot)
+	and it can reply when someone says hello in a mention
+
 16:03
 	Got the environemnt working (forgot to use source in front of the activation command) and got it up on the git
 	(although it seemed to need alot of packages)
@@ -37,12 +54,14 @@ Feb 9th 2018 ---------------------------
 
 
 Feb 2nd 2018 ---------------------------
+
 	So far the server seems to know when it receives a GET request but is having issues sending information
 	out to the browser. Hopefully this will be fixed soon and i can work on how to get and store the POST
 	requests that slack makes
 
 
 Feb 1st 2018 ---------------------------
+
 	After looking at the API's for making a '/' command in Slack it appears as though ill need
 	a server so i can respond to POST requests that the app will make.
 

@@ -11,32 +11,47 @@
 #----------IMPORTS------------#
 import os
 import time
+import datetime
 import re
 from slackclient import SlackClient
 import random
 #----------CONSTANTS----------#
 
 READ_DELAY=1 # 1 seccond read delay
-FIRST_COMMAND ='hello'
-MENTIONED = "^<@(|[WU].+?)>(.*)"#what the bot uses to look for its name being mentoined
+MENTIONED = "^<@(|[WU].+?)>(.*)"#what the bot uses to look for its name being mentioned
+NOW=datetime.datetime.now()
 
-#-------Response arrays-------#
-
-#'hello'
+#'hello' responses
 hello=[]
-hello.append('Hello! How are you?')
-hello.append('Hi! great to see you :wave:')
-hello.append('Hey. How\'s it going?')
+hello.append('Hey there! how\'s it going?')
+hello.append('Hi :grinning:')
+hello.append('Hello, whats up?')
+hello.append('Hey buddy :wave:,\nHow are you doing?')
+hello.append('Hi!\nI\'m StrugBot, and I\'m super happy to be here!!')
+hello.append('Sup!')
+hello.append('Hi,\nwhat can I do for you?')
+hello.append('.....Hey...')
+hello.append('WAZZZZUUUUUUUUUUUUUUP')
+
+#'what is the date' response
+date='the date is: '
+
+#'what time is it' response
+timeCall='the time is: '
+
+#secret trex response
+tRex="I am a T-Rex!:t-rex:\nI have a BIG head and little arms,\nRAWWWRRRRR!!"
+
 
 #------------CODE-------------#
 
 #slack client
-client=SlackClient(os.environ.get('SLACK_BOT_TOKEN')) # SLACK_BOT_TOKEN created in bash with $export SLACK_BOT_TOKEN='your bot user access token here'
+client=SlackClient(os.environ.get('SLACK_BOT_TOKEN')) # SLACK_BOT_TOKEN created in bash with $export SLACK_BOT_TOKEN='your bot user access token here' NOTE this will need to be redone each tim e you open the shell
 
 #bot id
 botID = None
 
-
+#parse the commands received from the api's
 def parse_CMD(slack_events):
 	#parse commands from bot API's
 
@@ -47,31 +62,44 @@ def parse_CMD(slack_events):
 				return message, event["channel"]
 	return 'None', 'None'
 
+#look for bot name being mentioned
 def  parse_mention(message_text):
 	#parse to find a direct mention to StrugBot
 	match = re.search(MENTIONED, message_text)
 
 	return (match.group(1), match.group(2).strip()) if match else (None, None)
 
+
+#when mentioned is confirmed this handels how the bot responds the the mention
 def  handle_CMD(command, channel):
 	#executes known commands
-
+	command=command.lower()
 	#Default
-	default_response = "Im unsure what you mean. Try *{}*.".format(FIRST_COMMAND)
+	default_response = "Im unsure what you mean. Try *{}*.".format('hello')
 
 	#Find and execute given command
 	response = None
 
-	#first command ('hello')
-	if command.startswith(FIRST_COMMAND):# if hello was found in the mention message
-		#choose a 'random' response form those appended to the response list (to give the illusion of diversity)
-		response=hello[random.randint(0,len(hello)-1)]
-		print("respionse is: "+response)
+	#response to hey @strugbot or hello @strugbot
+	if command.startswith('hello') or command.startswith('hey'):
+		#print("FIRST_COMMAND found as : ", FIRST_COMMAND)
+		response=hello[random.randint(0,len(hello)-1)]#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+	
+	if 'what is the date' in command:
+		response=date+NOW.strftime("%Y %m %d")
+	if ('what' in command) and ('time' in command):
+		response=timeCall+NOW.strftime("%H:%M")
+	
+	if 'are you a secret t-rex?' in command:
+		response=tRex	
+	
 	client.api_call(
 		"chat.postMessage",
 		channel=channel,
 		text=response or default_response
 	)
+	
+	
 
 if __name__ == "__main__":
 	if client.rtm_connect(with_team_state=False):
