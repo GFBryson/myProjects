@@ -1,5 +1,28 @@
+Feb 12th 2018 --------------------------
+
+13:13
+	Alright!! today has been super productive!
+		strugDB.py now had methods that create/connect to the database, and that can add 
+			event data to the events table. Strugbot can also tell you proper syntaxing 
+			if the event addition failes (but this could be refiled to be more accurate)
+		dbTester.py is a scratch file used to test strugDB.py's methods before atempting 
+			to have the bot use them
+		strugBot.db is the database that holds the events table (and more in the future)
+		dropStrugDB.py has only one use and that is to delete the strugBot.db events table and
+			was only created to assist with clean up while testing
+	Next items on the task list are: 
+		to have the bot be able to list out upcomming events when requested( and only those 
+			that pertain to the channel that requested the list)
+		be able to remove a specific event from the table, be able to modify an event in the table
+		have the bot know when to alert the channel that an event is upcomming that week 
+			or that it will be happening soon(15 min or 30 min warnings)
+
 Feb 11th 2018 --------------------------
 
+22:48
+	So because there is an omport for sqlite and because sqlite is closest to the sql i am doing in class 
+	right now i plan on using it to store event data. So far i have figured out how to get python to make 
+	a database and addd a table to it, as well as add in data
 16:48 
 	So now comes the part of how to implement the storing of events data so that it will be save when 
 	the bot turns off (weather for testing or if it crashes for some reason)
