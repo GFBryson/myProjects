@@ -15,7 +15,10 @@ import datetime
 import re
 from slackclient import SlackClient
 import random
+import strugDB
 #----------CONSTANTS----------#
+
+db=strugDB.sdb()
 
 READ_DELAY=1 # 1 seccond read delay
 MENTIONED = "^<@(|[WU].+?)>(.*)"#what the bot uses to look for its name being mentioned
@@ -54,8 +57,9 @@ botID = None
 #parse the commands received from the api's
 def parse_CMD(slack_events):
 	#parse commands from bot API's
-
+	#print(slack_events)
 	for event in  slack_events:
+		print(event)
 		if event["type"] == "message" and not "subtype" in event:
 			userID, message = parse_mention(event["text"])
 			if userID == botID:
@@ -67,6 +71,9 @@ def  parse_mention(message_text):
 	#parse to find a direct mention to StrugBot
 	match = re.search(MENTIONED, message_text)
 
+	print("match: ") 
+	print(match)
+
 	return (match.group(1), match.group(2).strip()) if match else (None, None)
 
 
@@ -74,6 +81,8 @@ def  parse_mention(message_text):
 def  handle_CMD(command, channel):
 	#executes known commands
 	command=command.lower()
+	print("command: "+command)
+	#command=command.lower()
 	#Default
 	default_response = "Im unsure what you mean. Try *{}*.".format('hello')
 
@@ -90,16 +99,28 @@ def  handle_CMD(command, channel):
 	if ('what' in command) and ('time' in command):
 		response=timeCall+NOW.strftime("%H:%M")
 	
-	if 'are you a secret t-rex?' in command:
+	if 'are you a secret t-rex' in command:
 		response=tRex	
 	
+	if "make event" in command or "create event" in command:
+		if "&gt;&gt;" not in command:
+			response="would you like to make an event?\nUse the Syntax @StrugBot create event>> YYYY-MM-DD HH:MM a/p EVENT_NAME"
+
+		else:
+			parsed=((command.split("&gt;&gt;"))[1].strip()).split(" ")
+			print("\nparsed")
+			print(parsed)
+			print()
+			db.add_event(parsed[0],parsed[1],parsed[2],channel,parsed[3])
+			db.print_events()
+			response="event "+parsed[3]+" created for "+parsed[1]+" "+parsed[2]+"m on "+parsed[0]
+
+
 	client.api_call(
-		"chat.postMessage",
-		channel=channel,
-		text=response or default_response
-	)
-	
-	
+                 "chat.postMessage",
+                 channel=channel,
+                 text=response or default_response
+         )
 
 if __name__ == "__main__":
 	if client.rtm_connect(with_team_state=False):
