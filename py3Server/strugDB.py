@@ -14,29 +14,29 @@ class sdb:
 	def create_events_table(self):
 		sql_command = """CREATE TABLE IF NOT EXISTS events(
 		id INTEGER PRIMARY KEY,
-		date DATE,
-		time TIME,
-		ampm CHAR(1),
+		date_time DATE,
 		channel VARCHAR(30),
-		title VARCHAR(60)
+		title VARCHAR(60),
+		description VARCHAR(300)
 		);"""
 
 		self.cursor.execute(sql_command)
-		self.connection.commit()	
+		self.connection.commit()
 
 
-	def add_event(self,dateV,timeV,ampmV,channelV,titleV):
-		sql_command = """INSERT INTO events (id,date,time,ampm,channel,title)
-		VALUES(NULL,"{date}","{time}","{channel}","{title}","{ampm}");"""
-	
-		sql_command=sql_command.format(date=dateV,time=timeV,ampm=ampmV,channel=channelV,title=titleV)
+	def add_event(self,dateV,channelV,titleV):
+		sql_command = """INSERT INTO events (id,date_time,channel,title,description)
+		VALUES(NULL,"{date_time}","{channel}","{title}","{des}");"""
+
+		sql_command=sql_command.format(date_time=dateV,channel=channelV,title=titleV,des=description)
 		self.cursor.execute(sql_command)
 		self.connection.commit()
 
 	def print_events(self):
-		self.cursor.execute("SELECT * FROM events")
+		self.cursor.execute("SELECT * FROM events ORDER BY date_time")
 		result=self.cursor.fetchall()
 		for r in result:
 			print(r)
 
-
+	def get_events(self):
+		return self.cursor.execute("SELECT * FROM events ORDER BY date_time").fetchall()
