@@ -1,16 +1,79 @@
+Feb 19th 2018 --------------------------
+
+	strugBot now only posts into channels that it was invited into when listing events
+
+Feb 16th 2018 --------------------------
+
+	strugBot now successfully makes an event in the strugDB and can call the db
+	for a list of events to be posted in group chat
+		this method could be improved by passing the into to which tells the
+		number of days ahead to look, which would remove the need for another method
+		that checks daily events
+	currently bot will post in every chat that a group has which is a bit excessive
+	as not all channels use the bot.
+		remedy would be to only post in a chat if the bot was added to the conversation before
+		posting to it.
+			Look into slack API's for this info (in channel info maybe?)
+
+	NOTE: timedelta not needed as just subtracting date objects will calculate the math
+				the way i need it (should still look into it though)
+
+
+Feb 15th 2018 --------------------------
+
+19:29
+	realization as I look into datetime objects: I can store the date and time
+	all together and reconvert it back to a datetime object when i need it :D!!
+	(ok maybe that should have been obvious but I'm happy!!)
+
+18:45
+	Now have realized that it would make much more sense to have the database
+	store a datetime object as that till be easier to use in the future when I
+	want to look up events in the upcoming next week
+		NOTE: need to look into timedelta operations
+	worked on making some regrex formulas to ensure that information is given
+	to the database in the format I want it in (for date and time mostly)
+
+Feb 13th 2018 --------------------------
+
+	working on fixing syntaxing for acessing and storing data in the database
+
+Feb 12th 2018 --------------------------
+
+13:13
+	Alright!! today has been super productive!
+		strugDB.py now had methods that create/connect to the database, and that can add
+			event data to the events table. strugBot can also tell you proper syntaxing
+			if the event addition fails (but this could be refiled to be more accurate)
+		dbTester.py is a scratch file used to test strugDB.py's methods before attempting
+			to have the bot use them
+		strugBot.db is the database that holds the events table (and more in the future)
+		dropStrugDB.py has only one use and that is to delete the strugBot.db events table and
+			was only created to assist with clean up while testing
+	Next items on the task list are:
+		to have the bot be able to list out upcoming events when requested( and only those
+			that pertain to the channel that requested the list)
+		be able to remove a specific event from the table, be able to modify an event in the table
+		have the bot know when to alert the channel that an event is upcoming that week
+			or that it will be happening soon(15 min or 30 min warnings)
+
 Feb 11th 2018 --------------------------
 
-16:48 
-	So now comes the part of how to implement the storing of events data so that it will be save when 
+22:48
+	So because there is an import for sqlite and because sqlite is closest to the sql i am doing in class
+	right now i plan on using it to store event data. So far i have figured out how to get python to make
+	a database and addd a table to it, as well as add in data
+16:48
+	So now comes the part of how to implement the storing of events data so that it will be save when
 	the bot turns off (weather for testing or if it crashes for some reason)
 	My current thought is to implement a database in something like sql or sqlite
 
 Feb 10th 2018 --------------------------
 
-	Implemented n array or responses for the 'hello' prompt and set it so it would randomly choose one each time it 
+	Implemented n array or responses for the 'hello' prompt and set it so it would randomly choose one each time it
 	replies
 
-	Strug now responds to queries about the current date and the current time
+	strugBot now responds to queries about the current date and the current time
 
 Feb 9th 2018 ---------------------------
 
@@ -19,7 +82,7 @@ Feb 9th 2018 ---------------------------
 	and it can reply when someone says hello in a mention
 
 16:03
-	Got the environemnt working (forgot to use source in front of the activation command) and got it up on the git
+	Got the environment working (forgot to use source in front of the activation command) and got it up on the git
 	(although it seemed to need alot of packages)
 
 15:25
@@ -46,11 +109,8 @@ Feb 9th 2018 ---------------------------
 	Slack also wants the server to be encrypted with SSL. So thats another thing to ass to the research list.
 
 
+	COMPLETED: Goal for the day ---> get server working on ip other than 127.0.0.1:8888
 
-
-
-	Goal for the day ---> get server working on ip other than 127.0.0.1:8888
-		GOAL ACHEIVED
 
 
 Feb 2nd 2018 ---------------------------
