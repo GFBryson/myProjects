@@ -4,7 +4,7 @@
 #V00880054
 #Feburary 9th 2018
 #
-# Code modifyied from tutorial at : https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
+# Code modifyied from basic tutorial at : https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
 #
 
 
@@ -17,6 +17,7 @@ from slackclient import SlackClient
 import random
 import strugDB
 from StrugEvents import strugEvents
+import botResponses
 #----------CONSTANTS----------#
 
 db=strugDB.sdb()
@@ -27,26 +28,6 @@ MENTIONED = "^<@(|[WU].+?)>(.*)"#what the bot uses to look for its name being me
 
 NOW=datetime.datetime.now()
 
-#'hello' responses NOTE move these to another file to declutter bot code
-hello=[]
-hello.append('Hey there "{usr}"! how\'s it going?')
-hello.append('Hi "{usr}" :grinning:')
-hello.append('Hello "{usr}", whats up?')
-hello.append('Hey "{usr}" :wave:,\nHow are you doing?')
-hello.append('Hi "{usr}"!\nI\'m StrugBot, and I\'m super happy to be here!!')
-hello.append('Sup "{usr}"!')
-hello.append('Hi "{usr}",\nwhat can I do for you?')
-#hello.append('.....Hey...') # be friendly
-hello.append('WAZZZZUUUUUUUUUUUUUUP "{usr}"')
-
-#'what is the date' response
-date='the date is: '
-
-#'what time is it' response
-timeCall='the time is: '
-
-#secret trex response
-tRex="I am a T-Rex!:t-rex:\nI have a BIG head and little arms,\nRAWWWRRRRR!!"
 
 
 #------------CODE-------------#
@@ -100,12 +81,17 @@ def  handle_CMD(command, channel,user):
 
 	#Find and execute given command
 	if command.startswith('hello') or command.startswith('hey'):#response to hey @strugbot or hello @strugbot
-		response=hello[random.randint(0,len(hello)-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+		response=resp_hello()[random.randint(0,len(hello)-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
 
+	elif((user == 'U8KHG0P1U') and (('thanks bot' in command) or ('fuck you' in command)){
+		response="Russell the bot cannot register your reply at this time. Please do not harass the bot"
+		
+		
+	}
 	elif ('what' in command) and ('date' in command):# to return current date
-		response=date+NOW.strftime("%Y %m %d")
+		response=resp_date()+NOW.strftime("%Y %m %d")
 	elif ('what' in command) and ('time' in command):#to return current time
-		response=timeCall+NOW.strftime("%H:%M")
+		response=resp_time()+NOW.strftime("%H:%M")
 
 	elif 'are you a secret t-rex' in command: #shhhh this is a secret ;)
 		response=tRex
@@ -148,7 +134,7 @@ if __name__ == "__main__":
 			now = datetime.datetime.now() #date and time current
 
 			# checking for time match (if date then print upcomming events for the week)
-			if (now.weekday() == 0) and (now.hour == 11) and (now.minute == 45):
+			if (now.weekday() == 0) and (now.hour == 13) and (now.minute == 6):
 				if(not weekly): #stops this printing for the whole minute
 					weekly=True
 					for ch in get_channels(): #for every channel bot is a member of ...

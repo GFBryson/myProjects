@@ -24,11 +24,11 @@ class sdb:
 		self.connection.commit()
 
 
-	def add_event(self,dateV,channelV,titleV):
+	def add_event(self,dateV,channelV,titleV,descriptionV):
 		sql_command = """INSERT INTO events (id,date_time,channel,title,description)
 		VALUES(NULL,"{date_time}","{channel}","{title}","{des}");"""
 
-		sql_command=sql_command.format(date_time=dateV,channel=channelV,title=titleV,des=description)
+		sql_command=sql_command.format(date_time=dateV,channel=channelV,title=titleV,des=descriptionV)
 		self.cursor.execute(sql_command)
 		self.connection.commit()
 

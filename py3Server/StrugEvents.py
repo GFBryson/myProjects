@@ -47,7 +47,7 @@ class strugEvents():
                 if(parsed[2]=='p') and (split_time[0]<12):
                     split_time[0]=split_time[0]+12
                 new_date=datetime.datetime(split_date[0],split_date[1],split_date[2],split_time[0],split_time[1])
-                db.add_event(new_date,channel,parsed[3])
+                db.add_event(new_date,channel,parsed[3],description)
                 db.print_events()
                 response="event "+parsed[3]+" created for "+parsed[1]+" "+parsed[2]+"m on "+parsed[0]
         else:

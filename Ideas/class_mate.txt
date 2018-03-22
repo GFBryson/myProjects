@@ -5,7 +5,7 @@
  * 
  */
 
-
+//UPDATE: strugbot project has the most up to date progress log, and is in the py3Server folder
 Class_ mate:
 
 a slack bot that will keep track of assignments, test dates, and group meetings and schedule reminders for them. 

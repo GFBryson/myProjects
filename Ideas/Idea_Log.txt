@@ -1,5 +1,37 @@
 //Gillian Bryson
 //V00880054
+
+//02-23-2018
+ UPDATE: class_mate ideas were/are being integrated into the strugBot project (located in the py3Server folder)
+
+ New Idea: Artificial neaural networks. Wouldnt it be cool to make something that can recognise hanwritten words? or make strugBot have more fluid and 'human' style interactions with users? 
+	Machine learning and AI have always intrugued me. so many things could be possible. 
+	I would need a project thats complicated enough to challange, but not so much that it is impossible.
+	
+	neaural networks work when one neauron fires and signals another one, so 
+	that in the end the most 'signald' neauron is the end result. So it would 
+	need to be given a task where it is trying to identify sonething, or learn 
+	how to compleat a task. 
+	
+	what about a maze solver. a maze solver that dies every time it gets stuck 
+	and has to restart. It would learn each time what worked and what didnt, and
+	then could look too see if those learned assumptions could be applied to 
+	other mazes.
+	
+	The runner would get expert at small mazes, and then use that learning to 
+	make assumptions about the most optimal paths to use on the next maze. 
+	
+	mazes can't be random. not if they are created with any purpose. 
+	Human nature is to create patterns even where we are trying not too, 
+	because trying to not make a pattern in itself makes a pattern, even if we 
+	cant see it. A computer could, couldn it?
+	and even if a computer made it there isnt any true randomness to that either.
+	the programming it followed wouldnt be random and even a call to a 'random' 
+	integer/float/long is dependant on something non-random. 
+
+	I will need to look into how to process an image... start in 2D then maybe
+	build it up to a 3d cube like maze
+
 //01-15-2018
 Class_Mate:
   Ok new idea. Not that I dont think the full app is possible( it's perfectly possible).
