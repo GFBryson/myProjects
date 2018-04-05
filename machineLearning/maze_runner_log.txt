@@ -1,0 +1,34 @@
+/* Gillian Bryson
+ * V00880054
+ * University of Victoria
+ */
+
+02-23-2018 -------------------------
+	NEW_IDEA: maze runner
+		use ai in neaural networks to make a predictive maze runner program
+		which leans and predicts thebest ways to navagate the maze
+			-future applications could be for mapping routes to 
+			 destinations (google map style)
+		say it looks at the last 10 moves te 'runner' made to analyse 
+		and determin the probabuility of the correct direction to go at the 
+		next junction
+	
+	Needed_Knowledge:
+		2D image processing
+		inner workings of Artificial Neaural Networks (ANN)
+		how to use statistics to determin probabuilities
+	
+	Language considerations:
+		while i dont know how the ANN wouks i am unsure of what language 
+		to use, but it would be nice to learn a new one. Possibly C# or C++ or
+		I could go back to java which i havent used for a while. 
+		
+		I feel like python would defitly be an easier way to get started 
+		(as I've been using it recetly with strugBot) but im not sure if it 
+		will give me the right level of controll needed for this project.
+
+		It might come down to what it will take for the image processing 
+		actually. 
+		
+		NOTE_TO_SELF: Talk to Bill about what he used when he 
+		teaches the 2D image procesing course.
