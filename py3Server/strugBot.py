@@ -43,7 +43,7 @@ def get_channels():
 	if chnl_api["ok"] == True: # make sure channels exist
 		channels= chnl_api["channels"] # get list of channels in json
 		for c in channels: #for channel data group in channels json
-			# VVV this line not working VVV unsure why ....
+
 			if c["is_member"]==True:# if The bot was invited into that group NOTE not necessary but prevents channels without events being pinged for no reason
 				channel_list.append(c["id"])# add channel id to the list of chanels
 	return channel_list
@@ -83,11 +83,10 @@ def  handle_CMD(command, channel,user):
 	if command.startswith('hello') or command.startswith('hey'):#response to hey @strugbot or hello @strugbot
 		response=resp_hello()[random.randint(0,len(hello)-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
 
-	elif((user == 'U8KHG0P1U') and (('thanks bot' in command) or ('fuck you' in command)){
+	elif((user == 'U8KHG0P1U') and (('thanks bot' in command) or ('fuck you' in command))):# a little something special to troll a friend ;) 
 		response="Russell the bot cannot register your reply at this time. Please do not harass the bot"
+		response="hello"
 		
-		
-	}
 	elif ('what' in command) and ('date' in command):# to return current date
 		response=resp_date()+NOW.strftime("%Y %m %d")
 	elif ('what' in command) and ('time' in command):#to return current time

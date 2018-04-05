@@ -10,7 +10,7 @@ class responder():
 		hello.append('Hi "{usr}",\nwhat can I do for you?')
 		hello.append('WAZZZZUUUUUUUUUUUUUUP "{usr}"')	
 	
-		retur=n hello
+		return hello
 	
 	def resp_trex():
 		return"I am a T-Rex!:t-rex:\nI have a BIG head and little arms,\nRAWWWRRRRR!!"
