@@ -17,7 +17,7 @@ from slackclient import SlackClient
 import random
 import strugDB
 from StrugEvents import strugEvents
-import botResponses
+from botResponses import responder
 #----------CONSTANTS----------#
 
 db=strugDB.sdb()
@@ -81,7 +81,8 @@ def  handle_CMD(command, channel,user):
 
 	#Find and execute given command
 	if command.startswith('hello') or command.startswith('hey'):#response to hey @strugbot or hello @strugbot
-		response=resp_hello()[random.randint(0,len(hello)-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+		response=responder.resp_hello()[random.randint(0,len(resp_hello())-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+
 
 	elif((user == 'U8KHG0P1U') and (('thanks bot' in command) or ('fuck you' in command))):# a little something special to troll a friend ;) 
 		response="Russell the bot cannot register your reply at this time. Please do not harass the bot"
