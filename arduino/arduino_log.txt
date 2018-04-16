@@ -1,0 +1,13 @@
+04/16/2018
+	Looking forward to a summer of fun!! I have a medium sized project in mind where I want to make a 
+	'synth' of sorts that is activsted by pressure sensitive pockets, and activate when they sense a 
+	ball is in the pocket.
+
+	Its an idea I saw floating around the internet and thought it could be a cool project to replicate
+	in an Arduino or Pi 
+	
+	Right now im fiddling around with the capabuilities of the machinary. I have used the mega2560 before
+	in class but that was more on a hardware level (coding in AVR and using specific instructions). This 
+	project will be using Arduino's higher level language
+
+	Hopfully I will have something awesome by the end of the summer, no matter what I end up doing with it:)
