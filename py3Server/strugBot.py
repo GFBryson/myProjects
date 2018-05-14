@@ -54,6 +54,7 @@ def parse_CMD(slack_events):
 	for event in  slack_events:
 		#print(event)
 		if event["type"] == "message" and not "subtype" in event:
+			print(event)
 			userID, message = parse_mention(event["text"])
 			if userID == botID:
 				return message, event["channel"], event["user"]
@@ -81,7 +82,8 @@ def  handle_CMD(command, channel,user):
 
 	#Find and execute given command
 	if command.startswith('hello') or command.startswith('hey'):#response to hey @strugbot or hello @strugbot
-		response=responder.resp_hello()[random.randint(0,len(resp_hello())-1)].format(usr="<"+user+">")#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
+		response=responder.resp_hello()[random.randint(0,len(responder.resp_hello())-1)].format(usr="<@"+user+">")
+		#"Hello!! Welcome to StrugBot \n I'm SUPER happy to see you"
 
 
 	elif((user == 'U8KHG0P1U') and (('thanks bot' in command) or ('fuck you' in command))):# a little something special to troll a friend ;) 
