@@ -91,9 +91,9 @@ def  handle_CMD(command, channel,user):
 		response="hello"
 		
 	elif ('what' in command) and ('date' in command):# to return current date
-		response=resp_date()+NOW.strftime("%Y %m %d")
+		response=responder.resp_date()+NOW.strftime("%Y %m %d")
 	elif ('what' in command) and ('time' in command):#to return current time
-		response=resp_time()+NOW.strftime("%H:%M")
+		response=responder.resp_time()+NOW.strftime("%H:%M")
 
 	elif 'are you a secret t-rex' in command: #shhhh this is a secret ;)
 		response=responder.resp_trex()
