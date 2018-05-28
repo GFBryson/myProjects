@@ -96,7 +96,7 @@ def  handle_CMD(command, channel,user):
 		response=resp_time()+NOW.strftime("%H:%M")
 
 	elif 'are you a secret t-rex' in command: #shhhh this is a secret ;)
-		response=tRex
+		response=responder.resp_trex()
 
 	elif ("make event" in command) or ("create event" in command) or ('add event' in command): # to make an event in the database
 
@@ -136,16 +136,17 @@ if __name__ == "__main__":
 			now = datetime.datetime.now() #date and time current
 
 			# checking for time match (if date then print upcomming events for the week)
-			if (now.weekday() == 0) and (now.hour == 13) and (now.minute == 6):
+			if (now.weekday() == 1) and (now.hour == 9) and (now.minute == 0):
 				if(not weekly): #stops this printing for the whole minute
 					weekly=True
 					for ch in get_channels(): #for every channel bot is a member of ...
+						text=strugEvents.print_week(ch)
 						client.api_call( # ... send message containing the weeks events to that channel
-					                 "chat.postMessage",
-					                 channel=ch,
-					                 text=strugEvents.print_week(ch)
-									 )
+							"chat.postMessage",
+							channel=ch,
+							text=strugEvents.print_week(ch)
+						 )
 			else:
-				weekly = False
+				weekly = False #resets weekly check once time has passed
 	else:
 		print("Im sorry, your connection to StrugBot failed") # usually happens when the auth key is incorrect
