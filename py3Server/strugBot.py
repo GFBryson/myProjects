@@ -136,7 +136,7 @@ if __name__ == "__main__":
 			now = datetime.datetime.now() #date and time current
 
 			# checking for time match (if date then print upcomming events for the week)
-			if (now.weekday() == 1) and (now.hour == 9) and (now.minute == 0):
+			if (now.weekday() == 0) and (now.hour == 9) and (now.minute == 15):
 				if(not weekly): #stops this printing for the whole minute
 					weekly=True
 					for ch in get_channels(): #for every channel bot is a member of ...
