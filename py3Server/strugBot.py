@@ -141,12 +141,16 @@ if __name__ == "__main__":
 			#----------------ALL TIME EVENTS SHOULD BE MOVED TO A SEPERATE FILE FOR FUTURE MULTITHREADDING
 			#checking for daily reminder of events
 			if (now.hour == 9) and (now.minute==0):
-				for ch in get_channels():
-					client.api_call(
-						"chat.postMessage",
-						channel=ch,
-						text="Unable to fetch Daily events at this time. Apologies for the inconveniance"
-					)
+				if (not daily):
+					daily=True
+					for ch in get_channels():
+						client.api_call(#post message in all channels its a part of
+							"chat.postMessage",
+							channel=ch,
+							text="Unable to fetch Daily events at this time. Apologies for the inconveniance"
+						)
+			else:
+				daily=False
 			# checking for time match (if date then print upcomming events for the week)
 			if (now.weekday() == 0) and (now.hour == 17) and (now.minute == 46):
 				if(not weekly): #stops this printing for the whole minute
