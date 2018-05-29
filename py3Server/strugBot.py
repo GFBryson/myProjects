@@ -124,6 +124,7 @@ if __name__ == "__main__":
 		botID=client.api_call("auth.test")["user_id"] #load bot id where previously set as 'None'
 		#Used to help bot see whe it has been mentioned
 		weekly = False
+		daily=False
 		while True:
 			command, channel, user = parse_CMD(client.rtm_read())#look for command signal
 
@@ -134,13 +135,25 @@ if __name__ == "__main__":
 			#checkEvents
 			time.sleep(READ_DELAY) # read delay in loop
 			now = datetime.datetime.now() #date and time current
+			print(now.weekday()," ",now.hour," ",now.minute)
 
+
+			#----------------ALL TIME EVENTS SHOULD BE MOVED TO A SEPERATE FILE FOR FUTURE MULTITHREADDING
+			#checking for daily reminder of events
+			if (now.hour == 9) and (now.minute==0):
+				for ch in get_channels():
+					client.api_call(
+						"chat.postMessage",
+						channel=ch,
+						text="Unable to fetch Daily events at this time. Apologies for the inconveniance"
+					)
 			# checking for time match (if date then print upcomming events for the week)
-			if (now.weekday() == 0) and (now.hour == 9) and (now.minute == 15):
+			if (now.weekday() == 0) and (now.hour == 17) and (now.minute == 46):
 				if(not weekly): #stops this printing for the whole minute
 					weekly=True
+					print("time trigger activated")
 					for ch in get_channels(): #for every channel bot is a member of ...
-						text=strugEvents.print_week(ch)
+						
 						client.api_call( # ... send message containing the weeks events to that channel
 							"chat.postMessage",
 							channel=ch,
