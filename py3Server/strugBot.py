@@ -135,7 +135,7 @@ if __name__ == "__main__":
 			#checkEvents
 			time.sleep(READ_DELAY) # read delay in loop
 			now = datetime.datetime.now() #date and time current
-			print(now.weekday()," ",now.hour," ",now.minute)
+		#	print(now.weekday()," ",now.hour," ",now.minute)
 
 
 			#----------------ALL TIME EVENTS SHOULD BE MOVED TO A SEPERATE FILE FOR FUTURE MULTITHREADDING
