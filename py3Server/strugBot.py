@@ -33,7 +33,7 @@ NOW=datetime.datetime.now()
 #------------CODE-------------#
 
 #slack client
-client=SlackClient(os.environ.get('SLACK_BOT_TOKEN')) # SLACK_BOT_TOKEN created in bash with $export SLACK_BOT_TOKEN='your bot user access token here' NOTE this will need to be redone each tim e you open the shell
+client=SlackClient(os.environ.get('SLACK_BOT_TOKEN')) # SLACK_BOT_TOKEN created in bash with $export SLACK_BOT_TOKEN='your bot user access token here' NOTE this will need to be redone each time you open the shell uness you add it to your ~/.bashrc file
 
 #bot id
 botID = None
@@ -54,7 +54,7 @@ def parse_CMD(slack_events):
 	for event in  slack_events:
 		#print(event)
 		if event["type"] == "message" and not "subtype" in event:
-			print(event)
+			#print(event)
 			userID, message = parse_mention(event["text"])
 			if userID == botID:
 				return message, event["channel"], event["user"]
