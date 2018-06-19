@@ -1,0 +1,55 @@
+-- build database for classMate;--split--
+--drop table if exists events;--split--
+--drop table if exists teachers;--split--
+--drop table if exists exams;--split--
+--drop table if exists assignments;--split--
+--drop table if exists classes;--split--
+create table if not exists channels(
+	ch_id varchar(10) primary key
+);--split--
+create table if not exists events(
+	ev_id integer primary key,
+	date_time DATE,
+	title varchar(60),
+	loc varchar(60),
+	description varchar(1000),
+	ch_id varchar(10),
+	constraint ch_exist foreign key (ch_id) references channels(ch_id)
+);--split--
+create table if not exists teachers(
+	t_id integer primary key,
+	name varchar(30)
+);--split--
+create table if not exists exams(
+	title varchar(30),
+	ex_id integer,
+	ex_room varchar(12),
+	date_time DATE,
+	class_id integer references classes(class_id),
+	notes varchar(1000),
+	primary key(class_id,ex_id)
+);--split--
+create table if not exists assignments(
+	due_date DATE,
+	a_id integer,
+	title varchar(60),
+	comments varchar(1000),
+	class_id varchar(12) references classes(class_id),
+	primary key(a_id,class_id)
+);--split--
+create table if not exists classes(
+	class_id varchar(12),
+	ch_id varhcar(10) references channels(ch_id),
+	name varchar(60),
+	room varchar(10),
+	t_id  integer references teachers(t_id),
+	semester varhcar(12),
+	primary key(ch_id,class_id)
+);
+--split--
+--Triggers;
+--split
+
+--create trigger have_channel before insert of ch_id on events();
+
+

@@ -1,3 +1,22 @@
+June 14th 2018--------------------------
+	ChangeLog:
+		some slash commands are implemented : 
+			/attach trial : used for testing implementation of buttons and dialogs
+			/hello-there : used to test basic server connectivity aka, am I still 
+				       able to communicate with the server
+		slash commands are handled in file strugSlashCatcher.py which is to be run as a FLASK app
+		Event creation will (soon) be done through a dialogue and users will commence event creation with a slash command
+			Dialog had regrex to ensure text strings for date and time are formated the way i need them to be for the DB
+	Plans:
+		strugBot will be phased out as a standalone and will instead be called on boot up of strugSlashCatcher.
+		strugBot has less purpose if the slash commands are the main way  usrs will interact with the app,
+			and i think that is the right way to run the program. '/' commands seem to be a cleaner method of interaction
+			and havin g the dialog makes for a much cleaner interaction with the app than having to remember the syntaxing 
+			when using the previous "@strugBot create event ..."  method	
+		right now this is running on a raspberryPi but in the future it should be hosted on AWS (lambda?)
+	I have been working on this (even if i havent updated this file since Feb (whoops)) and im excited that the slash commands are working,
+	as that is a big step towards having a proper user interface and having a more ... stable means of communication with users :)
+
 Feb 19th 2018 --------------------------
 
 	strugBot now only posts into channels that it was invited into when listing events
