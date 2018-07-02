@@ -4,9 +4,10 @@ Projects and things I have tinkered with for either institutional or personal ed
 Ideas for future (or current) projects can be found in my Ideas folder
 
 My goals for the sext year are to 
-	-have a basic bot working on Slack
+	-create a web application for Slack for student organisation and communication
+		-ClassMate
 	-make an app for the google home
-	-get my website hosted on my own computer server (get it off of external hosting service)
+	-make a personal websire as a portfolio for all my work
 		-site address : www.gillianfbryson.ca
 
 
