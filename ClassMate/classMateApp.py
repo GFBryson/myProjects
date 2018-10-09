@@ -50,6 +50,10 @@ def event_catcher():
 	if not sucsess:
 		return return_me
 	return make_response("",200)
+@app.route('/assignment',methods =['POST'])
+def assignment_catcher():
+	args=request.form['text'].split(' ')
+
 @app.route('/interact',methods=['POST'])
 def button_catcher():
 	payload=json.loads(request.form['payload'])#get  payload information out of the POST request
@@ -57,7 +61,7 @@ def button_catcher():
 	sucsess=False#did we sucsess from the api call in strugBotIntegrations
 	if payload['type']=='interactive_message':#if response is from an interactive message
 		if payload['callback_id']=='test_button': #if button type is test button
-			sucsess,return_me=button_test(payload['actions'][0]['value'],payload['trigger_id'],payload['message_ts'],payload['channel']['id'])#cale api call specific to button value and save sucsess value
+			sucsess,return_me=button_test(payload['actions'][0]['value'],payload['trigger_id'],payload['message_ts'],payload['channel']['id'])#make call to an  api call specific to that button value and save sucsess value
 
 	elif payload['type']=='dialog_submission':#if response is for a dialogue submission
 #		print(payload['channel']['id'])
